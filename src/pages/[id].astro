@@ -1,0 +1,51 @@
+---
+import AstroContent from "../components/AstroContent.astro";
+import { LitContent } from "../components/lit-content.js";
+import { PreactContent } from "../components/PreactContent";
+import { ReactContent } from "../components/ReactContent";
+import { SolidContent } from "../components/SolidContent";
+import SvelteContent from "../components/SvelteContent.svelte";
+import VueContent from "../components/VueContent.vue";
+
+interface Props {
+  h1: string;
+  content: { heading: string; p: string }[];
+}
+
+export function getStaticPaths() {
+  const pages = [];
+  for (let id = 0; id < 100; id++) {
+    let content = [];
+    for (let i = 0; i < 5000; i++) {
+      content.push({
+        heading: "Lorem Ipsum " + i,
+        p: "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+      });
+    }
+    let props = { content };
+    pages.push({ params: { id: id.toString() }, props });
+  }
+  return pages;
+}
+
+const { content } = Astro.props;
+---
+
+{
+  content.map((item) => (
+    // uncomment the integration you want to test here
+
+    // without component
+    // <>
+    //   <heading>{item.heading}</heading>
+    //   <p>{item.p}</p>
+    // </>
+    <AstroContent heading={item.heading} p={item.p} />
+    //<LitContent heading={item.heading} p={item.p} />
+    //<PreactContent heading={item.heading} p={item.p} />
+    //<ReactContent heading={item.heading} p={item.p} />
+    //<SolidContent heading={item.heading} p={item.p} />
+    //<SvelteContent heading={item.heading} p={item.p} />
+    //<VueContent heading={item.heading} p={item.p} />
+  ))
+}

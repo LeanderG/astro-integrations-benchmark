@@ -1,0 +1,34 @@
+{
+  "name": "astro-integrations-benchmark",
+  "license": "MIT",
+  "author": "Leander Gilles",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/lit": "1.0.1",
+    "@astrojs/preact": "1.2.0",
+    "@astrojs/react": "1.2.1",
+    "@astrojs/solid-js": "1.2.1",
+    "@astrojs/svelte": "1.0.2",
+    "@astrojs/vue": "1.2.1",
+    "@types/react": "18.0.24",
+    "@types/react-dom": "18.0.8",
+    "@webcomponents/template-shadowroot": "0.1.0",
+    "astro": "1.6.0",
+    "lit": "2.4.0",
+    "preact": "10.11.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "solid-js": "1.6.0",
+    "svelte": "3.52.0",
+    "vue": "3.2.41"
+  }
+}
